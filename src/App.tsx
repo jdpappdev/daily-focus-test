@@ -34,23 +34,29 @@ export default function App() {
   const progress = tasks.length > 0 ? (completedCount / tasks.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8">
-      <div className="max-w-md mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold dark:text-white">Daily Focus</h1>
+    <main className="min-h-screen px-4 py-8 text-slate-900 md:px-8 md:py-12 dark:text-white">
+      <div className="mx-auto max-w-md">
+        <header className="mb-10 flex items-center justify-between">
+          <div>
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.24em] text-blue-500">Your daily ritual</p>
+            <h1 className="text-3xl font-bold tracking-tight">Daily Focus</h1>
+          </div>
           <ThemeToggle />
-        </div>
+        </header>
 
-        <div className="flex justify-center mb-8">
+        <section className="glass-card mb-5 flex flex-col items-center px-6 py-8" aria-label="Daily progress">
           <ProgressRing progress={progress} />
-        </div>
+          <p className="mt-4 text-sm font-medium text-slate-500 dark:text-slate-400">
+            {tasks.length === 0 ? 'Start with one small win' : `${completedCount} of ${tasks.length} ${tasks.length === 1 ? 'task' : 'tasks'} complete`}
+          </p>
+        </section>
 
         <TaskInput onAdd={addTask} />
         <div className="mt-6">
           <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

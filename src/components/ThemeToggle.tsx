@@ -14,8 +14,10 @@ export default function ThemeToggle() {
 
   return (
     <button
+      type="button"
       onClick={() => setIsDark(!isDark)}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      className="rounded-xl bg-white/50 p-2.5 text-slate-700 shadow-sm transition hover:bg-white/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 dark:bg-slate-800/60 dark:text-slate-200 dark:hover:bg-slate-700/80"
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}
     </button>
