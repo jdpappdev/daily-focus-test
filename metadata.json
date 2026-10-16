@@ -1,0 +1,6 @@
+{
+  "name": "Daily Focus",
+  "description": "A simple task tracker to help you stay focused on your daily goals with a progress tracker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

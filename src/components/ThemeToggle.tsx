@@ -1,0 +1,23 @@
+import { useState, useEffect } from 'react';
+import { Sun, Moon } from 'lucide-react';
+
+export default function ThemeToggle() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  return (
+    <button
+      onClick={() => setIsDark(!isDark)}
+      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+    >
+      {isDark ? <Sun size={20} /> : <Moon size={20} />}
+    </button>
+  );
+}
