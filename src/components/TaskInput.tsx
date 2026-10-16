@@ -13,15 +13,17 @@ export default function TaskInput({ onAdd }: { onAdd: (text: string) => void }) 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
+    <form onSubmit={handleSubmit} className="glass-card flex gap-2 p-2">
+      <label htmlFor="new-task" className="sr-only">New task</label>
       <input
+        id="new-task"
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Add a new task..."
-        className="flex-grow p-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white"
+        placeholder="What needs your focus?"
+        className="min-w-0 flex-grow bg-transparent px-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white dark:placeholder:text-slate-500"
       />
-      <button type="submit" className="p-2 bg-blue-500 text-white rounded-lg">
+      <button type="submit" aria-label="Add task" className="rounded-xl bg-blue-500 p-2.5 text-white shadow-lg shadow-blue-500/20 transition hover:bg-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">
         <Plus size={20} />
       </button>
     </form>
